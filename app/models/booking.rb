@@ -21,8 +21,10 @@ class Booking < ApplicationRecord
   end	
 
   def minimum_booking_time
-    booking_time =  (end_at - start_at).to_i / 1.day
-    return unless booking_time.zero?
-    errors.add(:base, 'booking is only done for a day or night')
+    if end_at.present? && start_at.present?
+      booking_time =  (end_at - start_at).to_i / 1.day
+      return unless booking_time.zero?
+      errors.add(:base, 'booking is only done for a day or night')
+    end  
   end  
 end

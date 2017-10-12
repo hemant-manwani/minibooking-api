@@ -19,7 +19,7 @@ class RentalsController < ApplicationController
     if @rental.save
       render json: { rental: @rental }, status: :created, localtion: @rental
     else
-      render json: { errors: [@rental.errors] }  , status: 422
+      render json: { errors: @rental.errors }  , status: 422
     end
   end
 
