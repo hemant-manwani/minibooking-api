@@ -5,7 +5,7 @@ class Rental < ApplicationRecord
   validates :name, uniqueness: true
   
   # Associations
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   def calculate_price(start_at, end_at)
     # Assuming hotel work on 12pm to 12pm shift
