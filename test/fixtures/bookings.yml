@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_at: 2017-04-25 12:37:26
+  end_at: 2017-04-25 12:37:26
+  client_email: MyString
+  price: MyString
+
+two:
+  start_at: 2017-04-25 12:37:26
+  end_at: 2017-04-25 12:37:26
+  client_email: MyString
+  price: MyString
