@@ -13,6 +13,11 @@ class Booking < ApplicationRecord
   # Association
   belongs_to :rental
 
+  def as_json(options = {})
+    data = super(options.merge(only: %i[id start_at end_at client_email price rental_id]))
+    data = data.merge(rental_name: rental.name)
+  end
+
   private
   def book_time_overlap
   	booking = rental.bookings.where(start_at: start_at..end_at, end_at: start_at..end_at)
