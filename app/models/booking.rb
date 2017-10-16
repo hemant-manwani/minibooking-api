@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
   # Valdation
-  validates :start_at, :end_at, :client_email, :price, presence: true
+  validates :start_at, :end_at, :client_email, :price, :rental, presence: true
   validates :price, numericality: { greater_than: 0 }
   validates_datetime :start_at, :end_at
   validates_datetime :end_at, after: :start_at
