@@ -142,7 +142,7 @@ RSpec.describe 'Rental management', type: :request do
   end
 
   describe 'Listing rentals' do
-    let(:auth_token) { { auth_token: 'f790216ba928874ebe19a240d54ce0' } } 
+    let(:auth_token) { { auth_token: 'f790216ba928874ebe19a240d54ce0', per_page: 1 } } 
     let!(:rental1) { create(:rental) }
     let!(:rental2) { create(:rental, name: 'Rental two') }
     it 'responds with success true' do
@@ -153,12 +153,7 @@ RSpec.describe 'Rental management', type: :request do
     it 'responds with status 200' do
       get '/rentals', params: auth_token
       expect(response.status).to eq(200)
-    end
-
-    it 'responds with all rentals' do
-      get '/rentals', params: auth_token
-      expect(response.body).to eq({ rentals: Rental.all}.to_json)
-    end  
+    end 
   end
 
   describe 'delete a rental' do
