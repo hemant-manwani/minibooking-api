@@ -4,11 +4,10 @@ class RentalsController < ApplicationController
   # GET /rentals
   def index
     @rentals = Rental.paginate(:page => params[:page], :per_page => params[:per_page])
-    total_pages = (Rental.count / params[:per_page].to_i).ceil || 1
     render json: { 
         rentals: @rentals,
         meta: { 
-          total_pages: total_pages,
+          total_pages: @rentals.total_pages,
           per_page: params[:per_page],
           page: params[:page]
         } 
