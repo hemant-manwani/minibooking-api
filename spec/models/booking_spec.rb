@@ -27,7 +27,7 @@ RSpec.describe Booking, type: :model do
     end
 
     it 'is not valid when start time after the end time' do
-      expect(Booking.new(start_at: Time.now + 2.day,
+      expect(Booking.new(start_at: Time.now + 5.day,
                          end_at: booking.end_at + 1.day,
                          client_email: 'test_user@mail.com', 
                          price: 50,
