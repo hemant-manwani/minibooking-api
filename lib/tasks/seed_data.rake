@@ -10,8 +10,8 @@ namespace :seed_data do
         puts "creating bookings for #{rental.name}"
         (1..5).each do |b|
           booking = rental.bookings.new(client_email: "text_user_#{b}@mail.com",
-                                        start_at: Time.now + r.day,
-                                        end_at:Time.now + (r+1).day,
+                                        start_at: Time.now + b.day,
+                                        end_at:Time.now + (b+1).day,
                                         price: rental.daily_rates*1
                                         )
           if booking.save
