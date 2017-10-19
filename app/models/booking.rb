@@ -20,9 +20,11 @@ class Booking < ApplicationRecord
 
   private
   def book_time_overlap
-  	booking = rental.bookings.where(start_at: start_at..end_at, end_at: start_at..end_at)
-    return unless booking.present?
-    errors.add(:base, 'booking time is not available')
+    if end_at.present? && start_at.present?
+  	  booking = rental.bookings.where(start_at: start_at..end_at, end_at: start_at..end_at)
+      return unless booking.present?
+      errors.add(:base, 'booking time is not available')
+    end  
   end	
 
   def minimum_booking_time
